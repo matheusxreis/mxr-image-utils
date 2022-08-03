@@ -1,0 +1,26 @@
+{
+  "name": "@mxr/image-utils",
+  "version": "1.0.0",
+  "main": "./src/dist/index.js",
+  "types":"/src/dist/index.d.ts",
+  "license": "GPL",
+  "scripts": {
+    "start": "ts-node-dev ./src/index.ts"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/matheusxreis/mxr-image-utils"
+  },
+  "keywords": [
+    "base64", "image-utils", "image"
+  ],
+  "author": "Matheus Reis",
+  "devDependencies": {
+    "typescript": "^4.7.4"
+  },
+  "dependencies": {
+    "@types/axios": "^0.14.0",
+    "axios": "^0.27.2",
+    "ts-node-dev": "^2.0.0"
+  }
+}
