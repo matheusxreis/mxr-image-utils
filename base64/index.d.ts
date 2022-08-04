@@ -2,7 +2,7 @@ import { BlobToBase64Params } from "./dto/BlobToBase64Params";
 import { BlobToBase64Return } from "./dto/BlobToBase64Return";
 import { Base64ToBlobParams } from "./dto/Base64ToBlobParams";
 import { UrlToBase64Params } from "./dto/UrlToBase64Params";
-export declare class ImageUtils {
+declare class ImageUtils {
     /**
      * @function isBlob
      * @description Verify if a type passed is from Blob's instance.
@@ -63,3 +63,4 @@ export declare class ImageUtils {
      */
     static urlToBase64(params: UrlToBase64Params): Promise<BlobToBase64Return>;
 }
+export { ImageUtils };

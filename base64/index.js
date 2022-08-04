@@ -13,14 +13,7 @@ exports.ImageUtils = void 0;
 const NotBlobError_1 = require("./errors/NotBlobError");
 const NotImageError_1 = require("./errors/NotImageError");
 const ImageTypeError_1 = require("./errors/ImageTypeError");
-function separateBase64(base64) {
-    const [, rest] = base64.split(",");
-    return rest;
-}
-;
-function verifyTypes(type, types) {
-    return types.some(x => type);
-}
+const utils_1 = require("./utils");
 class ImageUtils {
     /**
      * @function isBlob
@@ -83,11 +76,11 @@ class ImageUtils {
                     reject(new NotImageError_1.NotImageError());
                 }
                 if (params.acceptedTypes) {
-                    const isOk = verifyTypes(ImageUtils.getTypeFile(reader.result), params.acceptedTypes);
+                    const isOk = utils_1.Utils.verifyTypes(ImageUtils.getTypeFile(reader.result), params.acceptedTypes);
                     isOk === false && reject(new ImageTypeError_1.ImageTypeError());
                 }
                 const x = {
-                    base64: separateBase64(reader.result),
+                    base64: utils_1.Utils.separateBase64(reader.result),
                     fileType: ImageUtils.getTypeFile(reader.result),
                     completeBase64: reader.result
                 };
