@@ -8,12 +8,8 @@ var __awaiter = (this && this.__awaiter) || function (thisArg, _arguments, P, ge
         step((generator = generator.apply(thisArg, _arguments || [])).next());
     });
 };
-var __importDefault = (this && this.__importDefault) || function (mod) {
-    return (mod && mod.__esModule) ? mod : { "default": mod };
-};
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.ImageUtils = void 0;
-const axios_1 = __importDefault(require("axios"));
 const NotBlobError_1 = require("./errors/NotBlobError");
 const NotImageError_1 = require("./errors/NotImageError");
 const ImageTypeError_1 = require("./errors/ImageTypeError");
@@ -108,12 +104,8 @@ class ImageUtils {
        */
     static base64ToBlob(params) {
         return __awaiter(this, void 0, void 0, function* () {
-            const res = yield (0, axios_1.default)({
-                method: "get",
-                url: params.base64,
-                responseType: "blob"
-            });
-            return yield res.data;
+            const res = yield fetch(params.base64);
+            return yield res.blob();
         });
     }
     /**
@@ -131,12 +123,8 @@ class ImageUtils {
      */
     static urlToBase64(params) {
         return __awaiter(this, void 0, void 0, function* () {
-            const res = yield (0, axios_1.default)({
-                method: "get",
-                url: params.url,
-                responseType: "blob"
-            });
-            const data = yield res.data;
+            const res = yield fetch(params.url);
+            const data = yield res.blob();
             return yield ImageUtils.blobToBase64({ blob: data });
         });
     }

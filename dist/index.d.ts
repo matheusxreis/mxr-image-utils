@@ -47,7 +47,7 @@ export declare class ImageUtils {
        * Example: {base64:"data:image/png;base64,iVBO..."}.
        * @returns Promise<Blob>
        */
-    static base64ToBlob(params: Base64ToBlobParams): Promise<any>;
+    static base64ToBlob(params: Base64ToBlobParams): Promise<Blob>;
     /**
      * @function urlToBase64
      * @description Converte a url string, to a base64 string.

@@ -1,4 +1,3 @@
-import axios from "axios";
 import { BlobToBase64Params } from "./dto/BlobToBase64Params";
 import { BlobToBase64Return } from "./dto/BlobToBase64Return";
 import { NotBlobError } from "./errors/NotBlobError";
@@ -12,7 +11,7 @@ import { ImageTypeError } from "./errors/ImageTypeError";
 
 
 function separateBase64(base64:string){
-    const [, rest] = base64.split(",");
+    const [, rest] = bafse64.split(",");
     return rest;
 };
 
@@ -112,13 +111,9 @@ export class ImageUtils {
      */
     static async base64ToBlob(params:Base64ToBlobParams){
 
-        const res = await axios({
-            method:"get",
-            url: params.base64,
-            responseType: "blob"
-        })
+        const res = await fetch(params.base64)
 
-        return await res.data
+        return await res.blob()
     }
 
     /**
@@ -136,13 +131,9 @@ export class ImageUtils {
      */
     static async urlToBase64(params: UrlToBase64Params){
 
-        const res = await axios({
-            method:"get",
-            url: params.url,
-            responseType: "blob"
-        })        
+        const res = await fetch(params.url)
 
-        const data = await res.data;
+        const data = await res.blob();
         return await ImageUtils.blobToBase64({blob: data});
     }
 
