@@ -72,10 +72,11 @@ class ImageUtils {
             const reader = new FileReader();
             reader.readAsDataURL(params.blob);
             reader.onloadend = function () {
+                var _a;
                 if (ImageUtils.isImage(reader.result) === false) {
                     reject(new NotImageError_1.NotImageError());
                 }
-                if (params.acceptedTypes) {
+                if ((_a = params.acceptedTypes) === null || _a === void 0 ? void 0 : _a.length) {
                     const isOk = utils_1.Utils.verifyTypes(ImageUtils.getTypeFile(reader.result), params.acceptedTypes);
                     isOk === false && reject(new ImageTypeError_1.ImageTypeError());
                 }
