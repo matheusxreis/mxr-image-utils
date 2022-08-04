@@ -2,9 +2,9 @@
 
 A image utils library.
 
-The idea is that it be a image-utils library with a lot of functions for a lot of situations. For a while, it has just a base64 module with functions about.
+The idea is that it be a image-utils library with a lot of functions for a lot of situations. For a while, it has just a base64's module.
 
-Above is how to use the library main functions:
+Below is how to use the library main functions:
 
 #### How to use:
 
@@ -38,4 +38,9 @@ There is anothers functions, which can be utils:
 
     ImageUtils.isImage(base64) /// verify if a base64 is from a image
     ImageUtils.isBlob(blob) //verify is the param is really a blob
+
+    //both return a boolean
 ```
+
+
+:metal:

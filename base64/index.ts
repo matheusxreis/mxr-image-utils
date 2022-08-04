@@ -11,7 +11,7 @@ import { ImageTypeError } from "./errors/ImageTypeError";
 
 
 function separateBase64(base64:string){
-    const [, rest] = bafse64.split(",");
+    const [, rest] = base64.split(",");
     return rest;
 };
 
