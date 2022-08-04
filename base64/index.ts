@@ -6,22 +6,12 @@ import { NotImageError } from "./errors/NotImageError";
 import { Base64ToBlobParams } from "./dto/Base64ToBlobParams";
 import { UrlToBase64Params } from "./dto/UrlToBase64Params";
 import { ImageTypeError } from "./errors/ImageTypeError";
+import { Utils } from "./utils";
 
 
+class ImageUtils {
 
-
-function separateBase64(base64:string){
-    const [, rest] = base64.split(",");
-    return rest;
-};
-
-function verifyTypes(type:string, types: string[]){
-    return types.some(x=>type)
-}
-
-
-
-export class ImageUtils {
+    
     /**
      * @function isBlob
      * @description Verify if a type passed is from Blob's instance.
@@ -88,12 +78,12 @@ export class ImageUtils {
                 reject(new NotImageError())
              }    
              if(params.acceptedTypes){
-                const isOk = verifyTypes(ImageUtils.getTypeFile(reader.result as string) as string,
+                const isOk = Utils.verifyTypes(ImageUtils.getTypeFile(reader.result as string) as string,
                             params.acceptedTypes);
                  isOk === false && reject(new ImageTypeError())           
             }  
             const x = {
-                base64: separateBase64(reader.result as string),
+                base64: Utils.separateBase64(reader.result as string),
                 fileType: ImageUtils.getTypeFile(reader.result as string), 
                 completeBase64: reader.result as string
             }
@@ -141,5 +131,4 @@ export class ImageUtils {
 }
 
 
-
-
+export { ImageUtils }
