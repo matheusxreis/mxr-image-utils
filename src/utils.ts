@@ -8,6 +8,6 @@ export class Utils {
     };
     
     static verifyTypes(type:string, types: string[]){
-        return types.some(x=>type)
+        return types.some(x=>x===type)
     }
 }
