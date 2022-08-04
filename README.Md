@@ -32,6 +32,16 @@ async function convertUrlImage(url){
 }
 ```
 
+You can, talking about blobToBase64 method, define which types will be accepts. 
+
+```js 
+          await ImageUtils.blobToBase64({
+              blob: event.target.files[0],
+              acceptedTypes: ["svg+xml", "png", "jpeg"]
+              });
+
+```
+
 There is anothers functions, which can be utils:
 
 ```js 

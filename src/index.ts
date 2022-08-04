@@ -77,7 +77,7 @@ class ImageUtils {
              if(ImageUtils.isImage(reader.result as string)===false){
                 reject(new NotImageError())
              }    
-             if(params.acceptedTypes){
+             if(params.acceptedTypes?.length){
                 const isOk = Utils.verifyTypes(ImageUtils.getTypeFile(reader.result as string) as string,
                             params.acceptedTypes);
                  isOk === false && reject(new ImageTypeError())           

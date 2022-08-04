@@ -8,7 +8,7 @@ class Utils {
     }
     ;
     static verifyTypes(type, types) {
-        return types.some(x => type);
+        return types.some(x => x === type);
     }
 }
 exports.Utils = Utils;
